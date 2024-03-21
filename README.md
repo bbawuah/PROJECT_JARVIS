@@ -1,4 +1,4 @@
-# GOPRO project
+# GOPRO project [IN PROGRESS]
 
 This is a project for the GOPRO application. It is an application that sends commands from a web application to the robot.
 
