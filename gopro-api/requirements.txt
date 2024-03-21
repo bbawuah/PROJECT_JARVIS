@@ -1,0 +1,5 @@
+# generic
+open_gopro==0.15.1
+fastapi==0.110.0
+importlib-metadata==4.13.0
+celery==5.3.6 
