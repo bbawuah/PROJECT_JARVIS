@@ -1,6 +1,25 @@
 # GOPRO project [IN PROGRESS]
 
-This is a project for the GOPRO application. It is an application that sends commands from a web application to the robot.
+This project offers an innovative solution for streaming and managing video footage from a GoPro camera. Utilizing a custom-built API, users can send commands to start and stop photo and video recordings and manage real-time streaming.
+
+## Key functionalities
+
+GoPro Control API: A flexible API that integrates with the GoPro to controlbasic functions such as starting/stopping recordings and live streaming.
+Video Streaming: The API supports converting MPEG-TS packets from the GoProinto HLS format, facilitating video streaming to various devices.
+Celery with Redis for Background Processing: Video streaming functionalityis handled through a background worker in Celery with Redis, optimizingserver performance.
+Frontend Interface: A modern and responsive user interface, developed usingVite, React, TypeScript, and Tailwind CSS. This ensures a seamless userexperience and easy operation of the GoPro camera.
+
+## Future Potential
+
+Future Potential with LLM Integration:
+In the future, the integration of Large Language Models (LLMs) presents an exciting avenue for enhancing this project. Imagine a scenario where the video streams from the GoPro are not only transmitted but also analyzed in real-time by an LLM. For instance, in a sports event, the LLM could provide live commentary by identifying and describing the action as it happens. Alternatively, in an educational context, such as a nature walk, the LLM could identify and provide information about flora and fauna captured by the camera. This level of interaction opens up new possibilities for content creation, where the LLM adds an informative or entertaining layer to the raw video footage, making it more engaging and educational for viewers.
+
+## Technologies Used:
+
+Backend: Custom API
+Frontend: Vite, React, TypeScript, Tailwind CSS
+Data Processing: Celery, Redis
+Video Processing: HLS for streaming
 
 ## Requirements
 
@@ -16,7 +35,9 @@ It expects this to be running here [::redis://localhost:6379/0](::redis://localh
 
 ### Installing
 
-#### Navigate to the project folder gopro-api
+#### Gopro-api
+
+This API provides a flexible interface for integrating with GoPro cameras, utilizing a wireless HTTP connection over WiFi. This enables users to effortlessly connect to their GoPro and send various commands, such as starting/stopping recordings and managing live streaming.
 
 ```
 cd gopro-api
