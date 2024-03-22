@@ -1,4 +1,4 @@
-![test image](https://github.com/bbawuah/gopro-project/blob/main/gopro-api/photos/100GOPRO/GOPR0059.JPG)
+<img src="https://github.com/bbawuah/gopro-project/blob/main/gopro-api/photos/100GOPRO/GOPR0059.JPG" width="200" height="200">
 
 # GOPRO project [IN PROGRESS]
 
