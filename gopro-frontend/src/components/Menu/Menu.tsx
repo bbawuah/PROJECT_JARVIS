@@ -39,7 +39,7 @@ export const Menu = (props: Props) => {
             }}
           />
         </div>
-        A project from LAB-BAWUAH
+        <span className="font-[700] text-gray-600 uppercase">LAB-BAWUAH</span>
       </div>
     </aside>
   );

@@ -16,7 +16,6 @@ interface Inputs {
 
 export const Index = () => {
   const [fetchError, setFetchError] = useState<string | null>(null);
-  const { updateGoPro } = useStore();
   const navigate = useNavigate();
   const {
     register,
@@ -24,6 +23,8 @@ export const Index = () => {
     formState: { errors, isSubmitting },
   } = useForm<Inputs>();
   const onHandleSubmit: SubmitHandler<Inputs> = async (data) => {
+    localStorage.setItem("target", data.target);
+
     try {
       const response = await fetch(`${API_URL}/connect`, {
         method: "POST",
@@ -34,11 +35,11 @@ export const Index = () => {
         throw new Error("GoPro not found");
       }
 
-      const json = (await response.json()) as GoPro;
+      const json = (await response.json()) as { is_connected: boolean };
 
-      updateGoPro(json);
-
-      navigate("/dashboard");
+      if (json.is_connected === true) {
+        navigate("/dashboard");
+      }
     } catch (error) {
       setFetchError("Could not connect to GoPro");
       return;
@@ -70,6 +71,7 @@ export const Index = () => {
               <Input
                 placeholder="GoPro 1234"
                 className="w-full"
+                error={errors.target}
                 {...register("target", { required: true })}
               />
               <div className="h-4 mb-2">

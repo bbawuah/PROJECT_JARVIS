@@ -11,9 +11,9 @@ export const About = () => {
       transition={{ duration: 0.25 }}
     >
       <DashboardContentContainer>
-        <div className="self-center mx-auto">
+        <div className="">
           <p className="text-center text-[calc(36/16*1rem)] font-[700] w-max">
-            Streaming
+            About me
           </p>
         </div>
       </DashboardContentContainer>

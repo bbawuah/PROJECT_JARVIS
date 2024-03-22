@@ -19,22 +19,29 @@ class GoProService:
         logger.info("Connecting to Gopro...")
         if not self.gopro.is_open:
             await self.gopro.open()
-            response = {
-                "SSID": self.gopro.ssid,
-                "hardware_info": await self.gopro.ble_command.get_hardware_info(),
-                "ble_connected": self.gopro.is_ble_connected,
-                "is_open": self.gopro.is_open,
-                "http_connected": self.gopro.is_http_connected,
-            }
+            response = {"is_connected": True}
             return response
         else:
             logger.info("Gopro is already open")
-            response = {
-                "ble_connected": self.gopro.is_ble_connected,
-                "is_open": self.gopro.is_open,
-                "http_connected": self.gopro.is_http_connected,
-            }
+            response = {"is_connected": False}
             return response
+
+    # Get GoPro data
+    async def get_gopro_data(self):
+        try:
+            if self.gopro and self.gopro.is_open:
+                response = {
+                    "SSID": self.gopro.ssid,
+                    "hardware_info": await self.gopro.ble_command.get_hardware_info(),
+                    "ble_connected": self.gopro.is_ble_connected,
+                    "is_open": self.gopro.is_open,
+                    "http_connected": self.gopro.is_http_connected,
+                }
+                return response
+            else:
+                raise RuntimeError("Gopro is not connected")
+        except Exception as e:
+            raise RuntimeError(e)
 
     #  Is connected
     def is_connected(self):

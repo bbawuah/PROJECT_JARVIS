@@ -56,7 +56,7 @@ async def connect(request: Request):
         response = await goProService.connect(body["target"])
         return response
     except Exception as e:
-        logger.error(e)
+        logger.error(f"{e}")
         raise HTTPException(
             status_code=404, detail=str("Error while connecting to GoPro")
         )
@@ -68,13 +68,25 @@ def is_connected():
     return response
 
 
+@app.get("/get_gopro_data")
+async def get_gopro_data():
+    try:
+        response = await goProService.get_gopro_data()
+        return response
+    except Exception as e:
+        logger.error(f"{e}")
+        raise HTTPException(
+            status_code=404, detail=str("Error while getting GoPro data")
+        )
+
+
 @app.post("/disconnect")
 async def disconnect():
     try:
         response = await goProService.disconnect()
         return response
     except Exception as e:
-        logger.error(e)
+        logger.error(f"{e}")
         raise HTTPException(
             status_code=404, detail=str("Error while disconnecting from GoPro")
         )
@@ -86,7 +98,7 @@ async def take_photo():
         response = await goProService.take_photo()
         return response
     except Exception as e:
-        logger.error(e)
+        logger.error(f"{e}")
         raise HTTPException(
             status_code=404, detail=str("Error while taking photo with GoPro")
         )
@@ -124,7 +136,7 @@ async def take_video(request: Request):
 
         return response
     except Exception as e:
-        logger.error(e)
+        logger.error(f"{e}")
         raise HTTPException(
             status_code=404, detail=str("Error while taking video with GoPro")
         )
@@ -136,7 +148,7 @@ async def stop_video():
         response = await goProService.stop_video()
         return response
     except Exception as e:
-        logger.error(e)
+        logger.error(f"{e}")
         raise HTTPException(
             status_code=404, detail=str("Error while stopping video with GoPro")
         )
@@ -151,10 +163,18 @@ async def start_stream():
         async_result = result
         return response
     except Exception as e:
-        logger.error(e)
+        logger.error(f"{e}")
         raise HTTPException(
             status_code=404, detail=str("Error while starting stream with GoPro")
         )
+
+
+@app.get("/has_streaming_playlist")
+async def has_streaming_playlist():
+    if not Path("streaming/output.m3u8").exists():
+        return {"has_streaming_playlist": False}
+    else:
+        return {"has_streaming_playlist": True}
 
 
 @app.post("/stop_stream")
@@ -169,7 +189,7 @@ async def stop_stream():
 
         return response
     except Exception as e:
-        logger.error(e)
+        logger.error(f"{e}")
         raise HTTPException(
             status_code=404, detail=str("Error while stopping stream with GoPro")
         )
@@ -181,7 +201,7 @@ async def power_down():
         response = await goProService.power_down()
         return response
     except Exception as e:
-        logger.error(e)
+        logger.error(f"{e}")
         raise HTTPException(
             status_code=404, detail=str("Error while powering down with GoPro")
         )
