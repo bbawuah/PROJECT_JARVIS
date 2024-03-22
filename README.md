@@ -1,3 +1,5 @@
+![test image](https://github.com/bbawuah/gopro-project/blob/main/gopro-api/photos/100GOPRO/GOPR0059.JPG)
+
 # GOPRO project [IN PROGRESS]
 
 This project offers an innovative solution for streaming and managing video footage from a GoPro camera. Utilizing a custom-built API, users can send commands to start and stop photo and video recordings and manage real-time streaming.
