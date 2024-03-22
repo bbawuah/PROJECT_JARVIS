@@ -1,4 +1,4 @@
-<img src="https://github.com/bbawuah/gopro-project/blob/main/gopro-api/photos/100GOPRO/GOPR0059.JPG" width="200" height="200">
+<img src="https://github.com/bbawuah/gopro-project/blob/main/gopro-api/photos/100GOPRO/GOPR0059.JPG" width="500" height="500">
 
 # GOPRO project [IN PROGRESS]
 
