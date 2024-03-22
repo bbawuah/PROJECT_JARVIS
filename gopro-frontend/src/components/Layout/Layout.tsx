@@ -14,9 +14,9 @@ export const Layout = () => {
             to: "/",
           },
           {
-            key: "streaming",
-            lable: "Streaming",
-            to: "/streaming",
+            key: "about",
+            lable: "About",
+            to: "/about",
           },
         ]}
       />

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { DashboardContentContainer } from "../components/DashboardContentContainer/DashboardContentContainer";
 
-export const Streaming = () => {
+export const About = () => {
   return (
     <motion.main
       className="w-full h-full"
