@@ -1,5 +1,3 @@
-![GoPro logo](https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AGoPro_logo.svg&psig=AOvVaw1FYG2gf3KKcOcWYq-Ia4er&ust=1711183668437000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKDloYe-h4UDFQAAAAAdAAAAABAE)
-
 # GOPRO project [IN PROGRESS]
 
 This project offers an innovative solution for streaming and managing video footage from a GoPro camera. Utilizing a custom-built API, users can send commands to start and stop photo and video recordings and manage real-time streaming.
