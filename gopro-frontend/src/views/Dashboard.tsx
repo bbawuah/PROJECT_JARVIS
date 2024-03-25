@@ -62,13 +62,13 @@ export const Dashboard = () => {
                 />
               </>
             )}
-          </div>
-          <React.Fragment>
             {goproData && (
               <p className="text-center text-[calc(36/16*1rem)] font-[700] w-max">
                 {goproData.SSID}
               </p>
             )}
+          </div>
+          <React.Fragment>
             <div className={videoContainerClasses}>
               {!playlistData.data?.has_streaming_playlist && (
                 <Button
@@ -95,7 +95,7 @@ export const Dashboard = () => {
               )}
             </div>
           </React.Fragment>
-          <div className="p-5 border h-[calc(250/16*1rem)] border-gray-500 rounded-md">
+          <div className="p-5 border border-gray-500 rounded-md">
             <div className="flex ">
               <Button
                 className="bg-red-500 text-white"

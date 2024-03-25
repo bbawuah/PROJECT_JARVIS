@@ -71,3 +71,4 @@ tmp/
 var
 venv/
 archive/
+*.crt
