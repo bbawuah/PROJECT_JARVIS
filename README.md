@@ -81,3 +81,4 @@ npm run dev
 
 ## Interesting articles
 - [https://gopro.github.io/OpenGoPro/ble/features/cohn.html](https://gopro.github.io/OpenGoPro/ble/features/cohn.html)
+- [https://gopro.github.io/OpenGoPro/http#section/Setup](https://gopro.github.io/OpenGoPro/http#section/Setup)
