@@ -15,9 +15,9 @@ export const Menu = (props: Props) => {
   return (
     <aside {...rest} className={classes}>
       <div className="flex flex-col space-between grow">
-        {/* <p className="break-words mb-4 uppercase font-[700]">
-          egaccom youth camp workshop
-        </p> */}
+        <p className="break-words mb-4 uppercase font-[700]">
+          GAFF youth camp workshop
+        </p>
         <nav>
           <ul>
             {menuOptions.map((option) => (
@@ -39,7 +39,6 @@ export const Menu = (props: Props) => {
             }}
           />
         </div>
-        <span className="font-[700] text-gray-600 uppercase">LAB-BAWUAH</span>
       </div>
     </aside>
   );
