@@ -80,4 +80,4 @@ npm run dev
 ```
 
 ## Interesting articles
-- [https://gopro.github.io/OpenGoPro/python_sdk/api.html#open-gopro-api](https://gopro.github.io/OpenGoPro/python_sdk/api.html#open-gopro-api)
+- [https://gopro.github.io/OpenGoPro/ble/features/cohn.html](https://gopro.github.io/OpenGoPro/ble/features/cohn.html)
