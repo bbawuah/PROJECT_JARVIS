@@ -8,6 +8,7 @@ import time
 from utils.logger import logger
 from dotenv import load_dotenv
 import requests
+from services.ffmpeg import FfmpegService
 
 load_dotenv()
 
@@ -28,6 +29,7 @@ class GoProService:
         f"{gopro_username}:{gopro_password}".encode("utf-8")
     ).decode("utf-8")
     headers: dict = {"Authorization": f"Basic {credentials}"}
+    ffmpeg_service = FfmpegService()
 
     # Connect to a Gopro
     # SEND Keep Alive command every 3 seconds
@@ -271,7 +273,9 @@ class GoProService:
     def start_stream(self):
         logger.info("Starting preview stream...")
 
-        self.convert_udp_stream_to_hls(8554, "streaming")
+        self.ffmpeg_service.convert_udp_stream_to_hls_and_capture_frames(
+            8554, "streaming", "llm"
+        )
 
         logger.info("Preview stream started")
 
@@ -314,23 +318,3 @@ class GoProService:
         else:
             logger.error("Gopro is not connected")
             raise RuntimeError("Error: Gopro is not connected")
-
-    def convert_udp_stream_to_hls(self, port, output_dir):
-        udp_url = f"udp://0.0.0.0:{port}"
-        command = [
-            "ffmpeg",
-            "-i",
-            udp_url,
-            "-codec:",
-            "copy",
-            "-start_number",
-            "0",
-            "-hls_time",
-            "10",
-            "-hls_list_size",
-            "0",
-            "-f",
-            "hls",
-            f"{output_dir}/output.m3u8",
-        ]
-        self.process = subprocess.Popen(command)
