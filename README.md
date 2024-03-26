@@ -7,7 +7,7 @@ This project offers an innovative solution for streaming and managing video foot
 GoPro Control API: A flexible API that integrates with the GoPro to controlbasic functions such as starting/stopping recordings and live streaming.
 Video Streaming: The API supports converting MPEG-TS packets from the GoProinto HLS format, facilitating video streaming to various devices.
 Celery with Redis for Background Processing: Video streaming functionalityis handled through a background worker in Celery with Redis, optimizingserver performance.
-Frontend Interface: A modern and responsive user interface, developed usingVite, React, TypeScript, and Tailwind CSS. This ensures a seamless userexperience and easy operation of the GoPro camera.
+Frontend Interface: A simple user interface, developed using Vite, React, TypeScript, and Tailwind CSS.
 
 ## Future Potential
 
