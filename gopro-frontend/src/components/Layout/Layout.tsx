@@ -13,11 +13,6 @@ export const Layout = () => {
             lable: "Home",
             to: "/",
           },
-          {
-            key: "about",
-            lable: "About",
-            to: "/about",
-          },
         ]}
       />
       <div className="col-start-5 col-end-[25] flex relative">
