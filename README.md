@@ -1,11 +1,13 @@
 # PROJECT_JARVIS [IN PROGRESS]
 
-This project offers an innovative solution for streaming and managing video footage from a GoPro camera. Utilizing a custom-built API, users can send commands to start and stop photo and video recordings and manage real-time streaming.
+This project is a proof of concept that utilizes the power of advanced Artificial Intelligence to extend the capabilities of standard video streaming. By integrating a state-of-the-art Large Language Model (LLM), the application does not just stream video content but enriches it with intelligent analysis in real-time. 
 
 ## Key functionalities
 
-GoPro Control API: A flexible API that integrates with the GoPro to controlbasic functions such as starting/stopping recordings and live streaming.
+GoPro Control API: A flexible API that integrates with the GoPro to control basic functions such as starting/stopping recordings and live streaming.
 Video Streaming: The API supports converting MPEG-TS packets from the GoProinto HLS format, facilitating video streaming to various devices.
+LLM Integration: Processing frames of the stream and passing it to a LLM `gpt-vision-preview`
+TTS: Using a Text To Speech model to sent content as audio through HTTP Live Streaming
 Celery with Redis for Background Processing: Video streaming functionalityis handled through a background worker in Celery with Redis, optimizingserver performance.
 Frontend Interface: A simple user interface, developed using Vite, React, TypeScript, and Tailwind CSS.
 
@@ -21,15 +23,15 @@ PROJECT_JARVIS harnesses the power of advanced Artificial Intelligence to extend
 
 ## Technologies Used:
 
-Backend: Custom API
+Backend: Python, FastAPI
 Frontend: Vite, React, TypeScript, Tailwind CSS
 Data Processing: Celery, Redis
 Video Processing: FFMPEG/HLS for streaming
 
 ## Requirements
 
-- A GoPRO camera
-- Python 3.8
+- A GoPRO Hero 12
+- Python (3.8)
 - Nodejs
 - Celery
 - Redis
@@ -64,7 +66,12 @@ This API is using FastAPI as a webserver. To run the app use the following comma
 uvicorn main:app --reload
 ```
 
-#### Install the Frontend dependencies
+#### Run Celery background worker
+```
+celery -A main.celery_app worker --loglevel=INFO
+```
+
+### Install the Frontend dependencies
 
 #### Navigate to the project folder gopro-frontend
 
