@@ -3,11 +3,11 @@ import { DashboardContentContainer } from "../components/DashboardContentContain
 import { useMutation, useQuery } from "react-query";
 import { API_URL } from "../utils/variables";
 import React, { useRef, useState } from "react";
-import { GoPro } from "../store/goproStore";
 import classNames from "classnames";
 import { Button } from "../components/Button/Button";
 import { VideoPlayer } from "../components/Video/Video";
 import { AudioPlayer } from "../components/Audio/Audio";
+import { GoPro } from "../types/types";
 
 export const Dashboard = () => {
   const { data: goproData, isError: isErrorGoProData } = useQuery(

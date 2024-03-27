@@ -6,9 +6,7 @@ import { Input } from "../components/DataEntry/Input/Input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { API_URL } from "../utils/variables";
 import { useState } from "react";
-import { useStore } from "../hooks/useStore";
 import { useNavigate } from "react-router-dom";
-import { GoPro } from "../store/goproStore";
 
 interface Inputs {
   target: string;
