@@ -4,8 +4,10 @@ This project is a proof of concept that utilizes the power of advanced Artificia
 
 ## Key functionalities
 
-GoPro Control API: A flexible API that integrates with the GoPro to controlbasic functions such as starting/stopping recordings and live streaming.
+GoPro Control API: A flexible API that integrates with the GoPro to control basic functions such as starting/stopping recordings and live streaming.
 Video Streaming: The API supports converting MPEG-TS packets from the GoProinto HLS format, facilitating video streaming to various devices.
+LLM Integration: Processing frames of the stream and passing it to a LLM `gpt-vision-preview`
+TTS: Using a Text To Speech model to sent content as audio through HTTP Live Streaming
 Celery with Redis for Background Processing: Video streaming functionalityis handled through a background worker in Celery with Redis, optimizingserver performance.
 Frontend Interface: A simple user interface, developed using Vite, React, TypeScript, and Tailwind CSS.
 
