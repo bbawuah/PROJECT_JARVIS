@@ -1,4 +1,4 @@
-# GOPRO project [IN PROGRESS]
+# PROJECT_JARVIS [IN PROGRESS]
 
 This project offers an innovative solution for streaming and managing video footage from a GoPro camera. Utilizing a custom-built API, users can send commands to start and stop photo and video recordings and manage real-time streaming.
 
@@ -15,16 +15,16 @@ PROJECT_JARVIS harnesses the power of advanced Artificial Intelligence to extend
 
 ### Technical Workflow:
 
-  - Utilizing FFMPEG, the server manages the conversion of incoming packets to the appropriate format and handles the periodic frame capture.
-  - Post-analysis, the AI-generated content is delivered as audio through the TTS model, complementing the visual feed.
-  - Robust background processing is achieved using Celery with Redis, ensuring seamless performance and scalability.
+- Utilizing FFMPEG, the server manages the conversion of incoming packets to the appropriate format and handles the periodic frame capture.
+- Post-analysis, the AI-generated content is delivered as audio through the TTS model, complementing the visual feed.
+- Robust background processing is achieved using Celery with Redis, ensuring seamless performance and scalability.
 
 ## Technologies Used:
 
 Backend: Custom API
 Frontend: Vite, React, TypeScript, Tailwind CSS
 Data Processing: Celery, Redis
-Video Processing: HLS for streaming
+Video Processing: FFMPEG/HLS for streaming
 
 ## Requirements
 
@@ -85,5 +85,6 @@ npm run dev
 ```
 
 ## Interesting articles
+
 - [https://gopro.github.io/OpenGoPro/ble/features/cohn.html](https://gopro.github.io/OpenGoPro/ble/features/cohn.html)
 - [https://gopro.github.io/OpenGoPro/http#section/Setup](https://gopro.github.io/OpenGoPro/http#section/Setup)
