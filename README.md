@@ -9,10 +9,26 @@ Video Streaming: The API supports converting MPEG-TS packets from the GoProinto 
 Celery with Redis for Background Processing: Video streaming functionalityis handled through a background worker in Celery with Redis, optimizingserver performance.
 Frontend Interface: A simple user interface, developed using Vite, React, TypeScript, and Tailwind CSS.
 
-## Future Potential
+## AI Integration in PROJECT_JARVIS
 
-Future Potential with LLM Integration:
-In the future, the integration of Large Language Models (LLMs) presents an exciting avenue for enhancing this project. Imagine a scenario where the video streams from the GoPro are not only transmitted but also analyzed in real-time by an LLM. For instance, in a sports event, the LLM could provide live commentary by identifying and describing the action as it happens. Alternatively, in an educational context, such as a nature walk, the LLM could identify and provide information about flora and fauna captured by the camera. This level of interaction opens up new possibilities for content creation, where the LLM adds an informative or entertaining layer to the raw video footage, making it more engaging and educational for viewers.
+PROJECT_JARVIS harnesses the power of advanced Artificial Intelligence to extend the capabilities of standard video streaming. By integrating a state-of-the-art Large Language Model (LLM), specifically gpt-4-vision-preview, the application does not just stream video content but enriches it with intelligent analysis in real-time.
+Real-time Analysis and Interaction:
+
+  - Every frame captured from the GoPro stream is analyzed by the LLM, enabling the detection of complex patterns or items of interest, such as potential hazards or objects resembling weapons.
+  - The implementation of this AI extends to providing instant feedback through a Text To Speech (TTS) model trained on my voice, offering a personalized narration of the detected content.
+
+### Educational and Safety Applications:
+
+  - For educational streams, such as nature walks, the LLM can identify and provide information about various flora and fauna, adding an informative layer to the viewing experience.
+  - In a sports context, the model can describe actions as they happen, giving viewers a play-by-play commentary.
+
+### Technical Workflow:
+
+  - Utilizing FFMPEG, the server manages the conversion of incoming packets to the appropriate format and handles the periodic frame capture.
+  - Post-analysis, the AI-generated content is delivered as audio through the TTS model, complementing the visual feed.
+  - Robust background processing is achieved using Celery with Redis, ensuring seamless performance and scalability.
+
+The fusion of real-time AI analysis with action camera technology promises to revolutionize content creation, providing not only security and educational benefits but also an engaging, narrative-driven user experience.
 
 ## Technologies Used:
 
