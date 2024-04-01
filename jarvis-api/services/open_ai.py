@@ -32,7 +32,7 @@ class OpenAIService:
                You work for an elite military unit. Detect anything that could be used as a weapon in the image. 
                Act as if it is a real life scenario. Don't use the word image in your answer.
                Describe how these objects can be used as weapons. Make it educative, fun and short.
-               If you don't know what to say, tell me an bible verse or a song about a weapon. 
+               If you don't know what to say, give me some advice for this mission. 
                Use a maximum of 20 words.
                 """,
                 },

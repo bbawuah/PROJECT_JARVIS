@@ -16,7 +16,7 @@ export const Menu = (props: Props) => {
     <aside {...rest} className={classes}>
       <div className="flex flex-col space-between grow">
         <p className="break-words mb-4 uppercase font-[700]">
-          GAFF youth camp workshop
+          {/* GAFF youth camp workshop */}
         </p>
         <nav>
           <ul>
