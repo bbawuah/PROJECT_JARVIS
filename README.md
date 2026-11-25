@@ -1,4 +1,8 @@
-# PROJECT_JARVIS [IN PROGRESS]
+# PROJECT_JARVIS
+
+A GoPro that narrates what it sees. Frames from the live stream go to GPT-4 Vision, ElevenLabs turns the description into speech, and that audio is streamed back over HLS next to the video.
+
+Proof of concept, built in March 2024. Not maintained.
 
 This project is a proof of concept that utilizes the power of advanced Artificial Intelligence to extend the capabilities of standard video streaming. By integrating a state-of-the-art Large Language Model (LLM), the application does not just stream video content but enriches it with intelligent analysis in real-time. 
 
@@ -7,7 +11,7 @@ This project is a proof of concept that utilizes the power of advanced Artificia
 GoPro Control API: A flexible API that integrates with the GoPro to control basic functions such as starting/stopping recordings and live streaming.
 Video Streaming: The API supports converting MPEG-TS packets from the GoPro into HLS format, facilitating video streaming to various devices.
 LLM Integration: Processing frames of the stream and passing it to a LLM `gpt-vision-preview`
-TTS: Using a Text To Speech model to sent content as audio through HTTP Live Streaming
+TTS: ElevenLabs text-to-speech (Python SDK, `eleven_monolingual_v1`, streamed) turns the model's description into audio, which is sent through HTTP Live Streaming
 Celery with Redis for Background Processing: Video streaming functionality is handled through a background worker in Celery with Redis, optimizing server performance.
 Frontend Interface: A simple user interface, developed using Vite, React, TypeScript, and Tailwind CSS.
 
@@ -18,7 +22,7 @@ PROJECT_JARVIS harnesses the power of advanced Artificial Intelligence to extend
 ### Technical Workflow:
 
 - Utilizing FFMPEG, the server manages the conversion of incoming packets to the appropriate format and handles the periodic frame capture.
-- Post-analysis, the AI-generated content is delivered as audio through the TTS model, complementing the visual feed.
+- Post-analysis, the AI-generated content is converted to speech with ElevenLabs and delivered as HLS audio, complementing the visual feed.
 - Robust background processing is achieved using Celery with Redis, ensuring seamless performance and scalability.
 
 ## Technologies Used:
@@ -27,6 +31,7 @@ Backend: Python, FastAPI
 Frontend: Vite, React, TypeScript, Tailwind CSS
 Data Processing: Celery, Redis
 Video Processing: FFMPEG/HLS for streaming
+AI: OpenAI GPT-4 Vision (image to text), ElevenLabs (text to speech)
 
 ## Requirements
 
@@ -42,12 +47,12 @@ It expects this to be running here [::redis://localhost:6379/0](::redis://localh
 
 ### Installing
 
-#### Gopro-api
+#### jarvis-api
 
 This API provides a flexible interface for integrating with GoPro cameras, utilizing a wireless HTTP connection over WiFi. This enables users to effortlessly connect to their GoPro and send various commands, such as starting/stopping recordings and managing live streaming.
 
 ```
-cd gopro-api
+cd jarvis-api
 ```
 
 You can start installing the API by running the following command in your terminal:
@@ -57,6 +62,15 @@ You can start installing the API by running the following command in your termin
 ```
 pip install -r requirements.txt
 ```
+
+#### Environment variables
+
+The API reads these at startup:
+
+- `OPEN_AI_API_KEY`
+- `ELEVEN_LABS_API_KEY`
+- `SSID`, `PASSWORD` (GoPro Wi-Fi)
+- `GOPRO_USERNAME`, `GOPRO_PASSWORD`
 
 #### Run the application
 
@@ -73,10 +87,10 @@ celery -A main.celery_app worker --loglevel=INFO
 
 ### Install the Frontend dependencies
 
-#### Navigate to the project folder gopro-frontend
+#### Navigate to the project folder jarvis-frontend
 
 ```
-cd gopro-frontend
+cd jarvis-frontend
 ```
 
 #### Install the Frontend dependencies
